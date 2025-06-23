@@ -1,0 +1,21 @@
+{{- with .Values }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .image.repository | replace "/" "-" }}
+spec:
+  replicas: {{ .replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .image.repository }}
+  template:
+    metadata:
+      labels:
+        app: {{ .image.repository }}
+    spec:
+      containers:
+      - name: app
+        image: "{{ .image.repository }}:{{ .image.tag }}"
+        ports:
+        - containerPort: 3000
+{{- end }}

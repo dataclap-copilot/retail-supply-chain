@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: notification
+  template:
+    metadata:
+      labels:
+        app: notification
+        version: v1
+    spec:
+      containers:
+      - name: notification
+        image: mydockerhubuser/notification:${TAG}
+        ports:
+        - containerPort: 3000
