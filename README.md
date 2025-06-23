@@ -89,16 +89,17 @@ Builds Docker images
 
 Pushes to DockerHub
 
-Deploys using Helm
----
-## ⚠️ Requires GitHub Secrets:
+Deploys using Helm Requires GitHub Secrets:
 
 DOCKER_USERNAME
 
 DOCKER_PASSWORD
+
 ---
 ## 🧪 Canary Deployments with Istio
+
 Each service includes a VirtualService that allows weighted traffic routing (e.g., 90% to v1, 10% to v2). Update weights to perform canary releases and rollbacks.
+
 ---
 ## 📌 Future Enhancements
 Add Prometheus/Grafana for metrics
@@ -108,4 +109,4 @@ Integrate ArgoCD for GitOps-based CD
 Add unit/integration tests
 
 Secure with JWT/Auth0
-# retail-supply-chain
+
